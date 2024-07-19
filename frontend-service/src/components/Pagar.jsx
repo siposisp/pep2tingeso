@@ -14,17 +14,20 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Switch from '@mui/material/Switch';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 const Pagar = () => {
     const [historialReparaciones, setHistorialReparaciones] = useState([]);
     const [reparaciones, setReparaciones] = useState([]);
+    const [bono, setBono] = useState(false);
     const { patente } = useParams();
     const navigate = useNavigate();
 
     const handleCalculate = (patente) => {
-        console.log("Calculando historial de reparaciones para la patente:", patente);
+        console.log("Calculando historial de reparaciones para la patente:", patente, "con bono:", bono);
         axios
-            .get(`http://localhost:8081/historialreparaciones/calculate?patente=${patente}`)
+            .get(`http://localhost:8081/historialreparaciones/calculate?patente=${patente}&bono=${bono}`)
             .then(() => {
                 console.log("Historial de reparaciones calculado con éxito");
                 fetchHistorialReparaciones();
@@ -134,6 +137,10 @@ const Pagar = () => {
                                             <TableCell align="left">{historial.horaClienteSeLlevaVehiculo}</TableCell>
                                             <TableCell align="left">{historial.pagado ? 'Sí' : 'No'}</TableCell>
                                             <TableCell>
+                                                <FormControlLabel
+                                                    control={<Switch checked={bono} onChange={() => setBono(!bono)} />}
+                                                    label="Aplicar bono"
+                                                />
                                                 {!historial.pagado && (
                                                     <>
                                                         <Button
