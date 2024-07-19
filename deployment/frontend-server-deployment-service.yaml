@@ -15,8 +15,8 @@ spec:
         app: frontend-deployment
     spec:
       containers:
-        - name: frontend--service
-          image: niko085/frontend--service
+        - name: frontendd-service
+          image: niko085/frontendd-service
           ports:
             - containerPort: 80
 ---
