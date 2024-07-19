@@ -50,7 +50,7 @@ Paso 2:
 docker build -t niko085/frontend-service .
 
 Paso 3:
-docker push niko085/frontend-service 
+docker push niko085/frontend-service
 
 
 //////////////////////////Ahora minikube//////////////////////////
