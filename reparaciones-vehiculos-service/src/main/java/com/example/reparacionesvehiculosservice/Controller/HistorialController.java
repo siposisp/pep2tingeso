@@ -118,6 +118,7 @@ public class HistorialController {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //bono hace referencia a si se quiere aplicar descuento por bono o no
     @GetMapping("/calculate")
     public ResponseEntity<Void> calculatehistorial(@RequestParam("patente") String patente, @RequestParam("bono") boolean bono) {
         historialService.calcularMontoTotalPagar(patente, bono);
