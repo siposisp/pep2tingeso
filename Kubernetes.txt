@@ -216,7 +216,7 @@ Para ver los services: kubectl get services
 -Reportes: kubectl apply -f reportes-service-deployment-service.yaml
 -Frontend: kubectl apply -f frontend-server-deployment-service.yaml
 
-
+---------------------------------------------IGNORA ESTO!!!------------------------------------------
 Si ocurre el problema de que no se puede acceder usando docker al 192.168.49.2:puerto externo del servicio
 usar: minikube service eureka-server-service
 Este es para que funcionen las consultas: minikube service gateway-server-service
@@ -228,3 +228,19 @@ kubectl get svc
 Usamos:minikube tunnel
 
 kubectl logs -f frontend-deployment-844877f5ff-sqfb4
+-----------------------------------------------------------------------------------------------------
+
+
+//////////Ahora hacemos un tunel para conectarnos mediante localhost:
+Abrir CMD en modo administrador e ingresar el comando: minikube tunnel
+No cerrar el CMD en modo admin hasta querer cerrar todo!!!!!!!
+
+---Solo la primera vez que se conecta el back con el front se usa: kubectl get svc
+   y buscamos el gateway, en mi caso la dirección ip externa es 127.0.0.1 y el puerto es el 8081 (el puerto lo configuré en los deployment)
+---
+
+Cuando está corriendo el tunel podemos ver la página web desde el navegar usando Solo localhost
+.Ej: http://localhost/home
+
+
+
