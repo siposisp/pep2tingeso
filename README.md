@@ -1,4 +1,4 @@
-# pep2tingeso
+# Pep 2 de la asignatura Técnicas de ingeniería de Software
 
 ## Microservicios
 
